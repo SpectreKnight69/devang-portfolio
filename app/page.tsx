@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react"
 import {
   Github,
-  Twitter,
+  Linkedin,
   Mail,
   Phone,
   ChevronDown,
@@ -52,71 +52,74 @@ export default function Portfolio() {
   }
 
   const skills = {
-    languages: ["Solidity", "Rust", "JavaScript", "TypeScript", "Python", "C++"],
-    smartContracts: ["Solidity (Ethereum, Sepolia)", "Rust (Solana)"],
-    frontend: ["React", "Next.js", "TailwindCSS", "Material UI", "Framer Motion", "Three.js", "A-Frame"],
-    backend: ["Node.js", "Express.js", "Ethers.js", "Web3.js", "Wagmi"],
+    languages: ["Golang", "Java", "JavaScript", "TypeScript", "C++"],
+    systems: ["Prometheus", "Grafana", "Docker", "Microservices"],
+    frontend: ["React", "Next.js", "Three.js", "WebGL", "Tailwind CSS"],
+    backend: ["Go", "Redis", "PostgreSQL", "REST APIs", "JWT Auth"],
     softSkills: ["Leadership", "Event Management", "Public Speaking", "Teamwork", "Time Management"],
   }
 
   const projects = [
     {
-      title: "GlobexFi - Cross Chain Bond Investment Platform",
+      title: "Scalable Asynchronous Job Processing System",
       description:
-        "GlobexFi is an AI-powered, cross-chain DeFi platform that lets users invest in synthetic government bonds using crypto. Built on Avalanche and deeply integrated with Chainlink (Data Feeds, CCIP, Automation, etc.), it automates portfolio setup, risk management, and yield optimization across chains—bridging TradFi stability with Web3 accessibility.",
-      tech: ["Chainlink", "Solidity", "Wagmi", "IPFS", "React", "Blockchain", "Gemini AI", "Vercel"],
-      status: "Work in Progress",
-    },
-    {
-      title: "Vogue - Fashion IP Platform",
-      description:
-        "Designing a decentralized fashion IP platform, enabling creators to tokenize their designs and manage their intellectual property rights on the blockchain.",
-      tech: ["Story IP Protocol", "Solidity", "Wagmi", "IPFS", "React", "Blockchain", "Aeneid", "Vercel"],
+        "Built a distributed task queue in Go using goroutines, per-job synchronization, and controlled concurrency. Implemented per-job timeouts, exponential backoff retries, and a dead-letter queue. Built end-to-end observability using Prometheus metrics and Grafana.",
+      tech: ["Go", "Redis", "Docker", "Prometheus", "Grafana"],
       status: "Completed",
     },
     {
-      title: "NFT Event Rewarding Platform",
+      title: "Opensource Compass",
       description:
-        "A decentralized event management dApp using Solidity, featuring NFT-based access control, ERC20 fan tokens, and React + MetaMask integration for seamless event creation and participation.",
-      tech: ["Blockchain", "Solidity", "NFT", "React", "IPFS", "Gemini AI"],
+        "Built a Go microservices backend integrating GitHub API with AI services. Developed an AI-powered onboarding guide generator using Gemini/Groq LPUs. Optimized PostgreSQL database and implemented JWT-based authentication.",
+      tech: ["Go", "PostgreSQL", "Docker", "JWT", "REST APIs", "Gemini AI"],
       status: "Completed",
     },
     {
-      title: "Grievance Redressal System",
+      title: "CampusEx",
       description:
-        "Developed an AI-powered grievance redressal system using FastAPI and LangChain, integrating a classification model to auto-route public complaints to the correct department via a conversational chatbot interface.",
-      tech: ["Gemini AI", "React", "FastAPI", "LangChain"],
+        "Developed a Go backend for a gamified social economy platform, with an event-driven stock engine and auction-based bidding. Built the 'Campus Tea' sentiment analysis pipeline using Llama 3.1 via Groq API to update student stock prices in real time.",
+      tech: ["Go", "Next.js", "PostgreSQL", "Three.js", "Docker", "Groq AI"],
       status: "Completed",
     },
   ]
 
   const achievements = [
     {
-      title: "1st Rank in React Rumble",
-      description: "WEB2.0 event of IIIT Lucknow",
+      title: "Codeforces Specialist",
+      description: "Achieved a maximum rating of 1405",
       icon: Award,
     },
     {
-      title: "2nd Position in HackOFiesta 6.1",
-      description: "Among 25+ teams at IIIT Lucknow",
+      title: "Global Rank 464",
+      description: "CodeChef Starters 162 (Among ~25,000 participants)",
+      icon: Award,
+    },
+    {
+      title: "Hackathon Winner",
+      description: "DevMatrix (CampusEx selected as winning project)",
+      icon: Award,
+    },
+    {
+      title: "Hackathon Winner",
+      description: "Reckon 7.0 (OpenSource Compass selected among top teams)",
       icon: Award,
     },
   ]
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
+    <div className="min-h-screen bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 text-slate-50">
       {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-black/20 backdrop-blur-md border-b border-white/10">
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-slate-950/80 shadow-md backdrop-blur-md border-b border-blue-900/50">
         <div className="container mx-auto px-6 py-4">
           <div className="flex justify-between items-center">
-            <div className="text-2xl font-bold text-white">Kuber Khandare</div>
+            <div className="text-2xl font-bold text-white">Devang Vaishnav</div>
             <div className="hidden md:flex space-x-8">
               {["About", "Skills", "Projects", "Education", "Contact"].map((item) => (
                 <button
                   key={item}
                   onClick={() => scrollToSection(item.toLowerCase())}
-                  className={`text-sm font-medium transition-colors hover:text-purple-400 ${
-                    activeSection === item.toLowerCase() ? "text-purple-400" : "text-white/80"
+                  className={`text-sm font-medium transition-colors hover:text-blue-400 ${
+                    activeSection === item.toLowerCase() ? "text-blue-400" : "text-blue-100/70"
                   }`}
                 >
                   {item}
@@ -129,52 +132,51 @@ export default function Portfolio() {
 
       {/* Hero Section */}
       <section id="hero" className="min-h-screen flex items-center justify-center relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-purple-600/20 to-blue-600/20"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 to-blue-900/10"></div>
         <div className="container mx-auto px-6 text-center relative z-10">
           <div className="max-w-4xl mx-auto">
-            <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 animate-fade-in">Kuber Khandare</h1>
-            <p className="text-xl md:text-2xl text-purple-200 mb-8 animate-fade-in-delay">
-              Blockchain Developer & AI Enthusiast
+            <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 animate-fade-in">Devang Vaishnav</h1>
+            <p className="text-xl md:text-2xl text-blue-300 mb-8 animate-fade-in-delay">
+              Software Engineer & Backend Developer
             </p>
-            <p className="text-lg text-white/80 mb-12 max-w-2xl mx-auto animate-fade-in-delay-2">
-              Computer Science & AI student at IIIT Lucknow, passionate about building decentralized applications and
-              innovative solutions using cutting-edge technologies.
+            <p className="text-lg text-blue-100/70 mb-12 max-w-2xl mx-auto animate-fade-in-delay-2">
+              Computer Science and Artificial Intelligence student at IIIT Lucknow with a CGPA of 9.05. Passionate about backend systems, distributed architectures, and AI integration.
             </p>
             <div className="flex flex-wrap justify-center gap-4 mb-12 animate-fade-in-delay-3">
               <Button
                 onClick={() => scrollToSection("projects")}
-                className="bg-purple-600 hover:bg-purple-700 text-white px-8 py-3 rounded-full"
+                className="bg-blue-600 hover:bg-blue-500 shadow-lg shadow-blue-900/20 text-white px-8 py-3 rounded-full"
               >
                 View My Work
               </Button>
               <Button
                 onClick={() => scrollToSection("contact")}
                 variant="outline"
-                className="border-white/30 text-white hover:bg-white/10 px-8 py-3 rounded-full"
+                className="border-white/30 text-white hover:bg-blue-800/40 hover:border-blue-600 hover:shadow-blue-900/20 px-8 py-3 rounded-full"
               >
                 Get In Touch
               </Button>
             </div>
             <div className="flex justify-center space-x-6 animate-fade-in-delay-4">
               <a
-                href="https://github.com/KuberTheGreat"
+                href="https://github.com/SpectreKnight69"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-white/80 hover:text-purple-400 transition-colors"
+                className="text-blue-100/70 hover:text-blue-400 transition-colors"
               >
                 <Github size={24} />
               </a>
               <a
-                href="https://x.com/kuberkhandare"
+                href="https://www.linkedin.com/in/devang-vaishnav-0680a3327/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-white/80 hover:text-purple-400 transition-colors"
+                className="text-blue-100/70 hover:text-blue-400 transition-colors"
               >
-                <Twitter size={24} />
+                <Linkedin size={24} />
               </a>
               <a
-                href="mailto:kuberkhandare@gmail.com"
-                className="text-white/80 hover:text-purple-400 transition-colors"
+                href="mailto:devang.012006@gmail.com"
+                className="text-blue-100/70 hover:text-blue-400 transition-colors"
               >
                 <Mail size={24} />
               </a>
@@ -182,53 +184,52 @@ export default function Portfolio() {
           </div>
         </div>
         <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-          <ChevronDown className="text-white/60" size={32} />
+          <ChevronDown className="text-blue-200/40" size={32} />
         </div>
       </section>
 
       {/* About Section */}
-      <section id="about" className="py-20 bg-black/20">
+      <section id="about" className="py-20 bg-blue-950/30">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-4xl font-bold text-white mb-8 flex items-center justify-center gap-3">
-              <User className="text-purple-400" />
+              <User className="text-blue-400" />
               About Me
             </h2>
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <div className="text-left">
-                <p className="text-lg text-white/80 mb-6">
-                  I'm a passionate Computer Science and AI student at IIIT Lucknow with a strong focus on blockchain
-                  development and artificial intelligence. With a CGPA of 9.05, I've been consistently excelling in my
-                  academic journey while building innovative projects.
+                <p className="text-lg text-blue-100/70 mb-6">
+                  I'm a passionate Computer Science and AI student at IIIT Lucknow with a strong focus on backend systems
+                  and artificial intelligence. With a CGPA of 9.05, I've been consistently excelling in my
+                  academic journey while building highly scalable projects.
                 </p>
-                <p className="text-lg text-white/80 mb-6">
-                  My expertise spans across multiple domains including smart contract development, full-stack web
-                  development, and AI integration. I'm particularly interested in DeFi applications and decentralized
-                  systems.
+                <p className="text-lg text-blue-100/70 mb-6">
+                  My expertise spans across multiple domains including distributed task queues, concurrent goroutine design,
+                  full-stack web development, and AI integration. I'm particularly interested in scalable backends and intelligent systems.
                 </p>
                 <div className="flex flex-wrap gap-3">
-                  <Badge variant="secondary" className="bg-purple-600/20 text-purple-200">
-                    Blockchain Developer
+                  <Badge variant="secondary" className="bg-blue-900/50 text-blue-300 border border-blue-700/50">
+                    Backend Developer
                   </Badge>
-                  <Badge variant="secondary" className="bg-blue-600/20 text-blue-200">
+                  <Badge variant="secondary" className="bg-sky-900/50 text-sky-300 border border-sky-700/50">
                     AI Enthusiast
                   </Badge>
-                  <Badge variant="secondary" className="bg-green-600/20 text-green-200">
-                    Full-Stack Developer
+                  <Badge variant="secondary" className="bg-emerald-900/50 text-emerald-300 border border-emerald-700/50">
+                    Systems Engineer
                   </Badge>
                 </div>
               </div>
               <div className="space-y-4">
-                <div className="bg-white/5 backdrop-blur-sm rounded-lg p-6 border border-white/10">
+                <div className="bg-blue-900/20 backdrop-blur-md rounded-lg p-6 border border-blue-800/50">
                   <h3 className="text-xl font-semibold text-white mb-2">Current Focus</h3>
-                  <p className="text-white/70">
-                    Building decentralized applications and exploring the intersection of AI and blockchain technology.
+                  <p className="text-blue-200/60">
+                    Building highly scalable microservices and exploring the intersection of distributed systems and AI.
                   </p>
                 </div>
-                <div className="bg-white/5 backdrop-blur-sm rounded-lg p-6 border border-white/10">
+                <div className="bg-blue-900/20 backdrop-blur-md rounded-lg p-6 border border-blue-800/50">
                   <h3 className="text-xl font-semibold text-white mb-2">Goals</h3>
-                  <p className="text-white/70">
-                    Contributing to the Web3 ecosystem and developing innovative solutions for real-world problems.
+                  <p className="text-blue-200/60">
+                    Solving complex architectural challenges and developing performant, resilient backend solutions.
                   </p>
                 </div>
               </div>
@@ -242,21 +243,21 @@ export default function Portfolio() {
         <div className="container mx-auto px-6">
           <div className="max-w-6xl mx-auto">
             <h2 className="text-4xl font-bold text-white mb-12 text-center flex items-center justify-center gap-3">
-              <Code className="text-purple-400" />
+              <Code className="text-blue-400" />
               Skills & Technologies
             </h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              <Card className="bg-white/5 backdrop-blur-sm border-white/10">
+              <Card className="bg-blue-900/20 backdrop-blur-md border border-blue-800/50">
                 <CardHeader>
                   <CardTitle className="text-white flex items-center gap-2">
-                    <Code className="text-purple-400" size={20} />
+                    <Code className="text-blue-400" size={20} />
                     Programming Languages
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
                   <div className="flex flex-wrap gap-2">
                     {skills.languages.map((skill) => (
-                      <Badge key={skill} variant="secondary" className="bg-purple-600/20 text-purple-200">
+                      <Badge key={skill} variant="secondary" className="bg-blue-900/50 text-blue-300 border border-blue-700/50">
                         {skill}
                       </Badge>
                     ))}
@@ -264,17 +265,17 @@ export default function Portfolio() {
                 </CardContent>
               </Card>
 
-              <Card className="bg-white/5 backdrop-blur-sm border-white/10">
+              <Card className="bg-blue-900/20 backdrop-blur-md border border-blue-800/50">
                 <CardHeader>
                   <CardTitle className="text-white flex items-center gap-2">
                     <Database className="text-blue-400" size={20} />
-                    Smart Contracts
+                    Systems & Observability
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
                   <div className="flex flex-wrap gap-2">
-                    {skills.smartContracts.map((skill) => (
-                      <Badge key={skill} variant="secondary" className="bg-blue-600/20 text-blue-200">
+                    {skills.systems.map((skill) => (
+                      <Badge key={skill} variant="secondary" className="bg-sky-900/50 text-sky-300 border border-sky-700/50">
                         {skill}
                       </Badge>
                     ))}
@@ -282,17 +283,17 @@ export default function Portfolio() {
                 </CardContent>
               </Card>
 
-              <Card className="bg-white/5 backdrop-blur-sm border-white/10">
+              <Card className="bg-blue-900/20 backdrop-blur-md border border-blue-800/50">
                 <CardHeader>
                   <CardTitle className="text-white flex items-center gap-2">
-                    <Smartphone className="text-green-400" size={20} />
+                    <Smartphone className="text-emerald-600" size={20} />
                     Frontend
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
                   <div className="flex flex-wrap gap-2">
                     {skills.frontend.map((skill) => (
-                      <Badge key={skill} variant="secondary" className="bg-green-600/20 text-green-200">
+                      <Badge key={skill} variant="secondary" className="bg-emerald-900/50 text-emerald-300 border border-emerald-700/50">
                         {skill}
                       </Badge>
                     ))}
@@ -300,17 +301,17 @@ export default function Portfolio() {
                 </CardContent>
               </Card>
 
-              <Card className="bg-white/5 backdrop-blur-sm border-white/10">
+              <Card className="bg-blue-900/20 backdrop-blur-md border border-blue-800/50">
                 <CardHeader>
                   <CardTitle className="text-white flex items-center gap-2">
-                    <Server className="text-orange-400" size={20} />
+                    <Server className="text-amber-600" size={20} />
                     Backend
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
                   <div className="flex flex-wrap gap-2">
                     {skills.backend.map((skill) => (
-                      <Badge key={skill} variant="secondary" className="bg-orange-600/20 text-orange-200">
+                      <Badge key={skill} variant="secondary" className="bg-amber-900/50 text-amber-300 border border-amber-700/50">
                         {skill}
                       </Badge>
                     ))}
@@ -318,17 +319,17 @@ export default function Portfolio() {
                 </CardContent>
               </Card>
 
-              <Card className="bg-white/5 backdrop-blur-sm border-white/10 md:col-span-2">
+              <Card className="bg-blue-900/20 backdrop-blur-md border border-blue-800/50 md:col-span-2">
                 <CardHeader>
                   <CardTitle className="text-white flex items-center gap-2">
-                    <User className="text-pink-400" size={20} />
+                    <User className="text-rose-500" size={20} />
                     Soft Skills
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
                   <div className="flex flex-wrap gap-2">
                     {skills.softSkills.map((skill) => (
-                      <Badge key={skill} variant="secondary" className="bg-pink-600/20 text-pink-200">
+                      <Badge key={skill} variant="secondary" className="bg-rose-900/50 text-rose-300 border border-rose-700/50">
                         {skill}
                       </Badge>
                     ))}
@@ -341,18 +342,18 @@ export default function Portfolio() {
       </section>
 
       {/* Projects Section */}
-      <section id="projects" className="py-20 bg-black/20">
+      <section id="projects" className="py-20 bg-blue-950/30">
         <div className="container mx-auto px-6">
           <div className="max-w-6xl mx-auto">
             <h2 className="text-4xl font-bold text-white mb-12 text-center flex items-center justify-center gap-3">
-              <Briefcase className="text-purple-400" />
+              <Briefcase className="text-blue-400" />
               Featured Projects
             </h2>
             <div className="grid lg:grid-cols-2 gap-8">
               {projects.map((project, index) => (
                 <Card
                   key={index}
-                  className="bg-white/5 backdrop-blur-sm border-white/10 hover:bg-white/10 transition-all duration-300"
+                  className="bg-blue-900/20 backdrop-blur-md border border-blue-800/50 hover:bg-blue-800/40 hover:border-blue-600 hover:shadow-blue-900/20 transition-all duration-300"
                 >
                   <CardHeader>
                     <div className="flex justify-between items-start">
@@ -361,8 +362,8 @@ export default function Portfolio() {
                         variant={project.status === "Completed" ? "default" : "secondary"}
                         className={
                           project.status === "Completed"
-                            ? "bg-green-600/20 text-green-200"
-                            : "bg-yellow-600/20 text-yellow-200"
+                            ? "bg-emerald-900/50 text-emerald-300 border border-emerald-700/50"
+                            : "bg-yellow-900/50 text-yellow-300 border border-yellow-700/50"
                         }
                       >
                         {project.status}
@@ -370,12 +371,12 @@ export default function Portfolio() {
                     </div>
                   </CardHeader>
                   <CardContent>
-                    <CardDescription className="text-white/70 mb-4 text-base leading-relaxed">
+                    <CardDescription className="text-blue-200/60 mb-4 text-base leading-relaxed">
                       {project.description}
                     </CardDescription>
                     <div className="flex flex-wrap gap-2">
                       {project.tech.map((tech) => (
-                        <Badge key={tech} variant="outline" className="border-purple-400/30 text-purple-200">
+                        <Badge key={tech} variant="outline" className="border-blue-500/30 text-blue-300">
                           {tech}
                         </Badge>
                       ))}
@@ -393,101 +394,69 @@ export default function Portfolio() {
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-4xl font-bold text-white mb-12 text-center flex items-center justify-center gap-3">
-              <GraduationCap className="text-purple-400" />
+              <GraduationCap className="text-blue-400" />
               Education
             </h2>
             <div className="space-y-6">
-              <Card className="bg-white/5 backdrop-blur-sm border-white/10">
+              <Card className="bg-blue-900/20 backdrop-blur-md border border-blue-800/50">
                 <CardHeader>
                   <CardTitle className="text-white">
                     Bachelor of Technology - Computer Science and Artificial Intelligence
                   </CardTitle>
-                  <CardDescription className="text-purple-200">
+                  <CardDescription className="text-blue-300">
                     Indian Institute of Information Technology, Lucknow • 2024 - 2028
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
                   <div className="flex justify-between items-center mb-4">
-                    <span className="text-white/80">
-                      CGPA: <span className="text-green-400 font-semibold">9.05</span>
+                    <span className="text-blue-100/70">
+                      CGPA: <span className="text-emerald-600 font-semibold">9.05</span>
                     </span>
                   </div>
-                  <p className="text-white/70">
-                    <strong>Relevant Courses:</strong> Object Oriented Programming, Data Structures, Web Design,
-                    Computer Organisation and Architecture, Databases
+                  <p className="text-blue-200/60">
+                    <strong>Relevant Courses:</strong> Object Oriented Programming, Data Structures, Computer Architecture, Databases, Distributed Systems (self-study)
                   </p>
                 </CardContent>
               </Card>
-
-              <div className="grid md:grid-cols-2 gap-6">
-                <Card className="bg-white/5 backdrop-blur-sm border-white/10">
-                  <CardHeader>
-                    <CardTitle className="text-white">Class XII</CardTitle>
-                    <CardDescription className="text-purple-200">
-                      Kailashvasi Dashrath Baba Uchh Madhyamik Vidyalaya, Jalna • 2022 - 2024
-                    </CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <span className="text-white/80">
-                      Percentage: <span className="text-green-400 font-semibold">84.5%</span>
-                    </span>
-                  </CardContent>
-                </Card>
-
-                <Card className="bg-white/5 backdrop-blur-sm border-white/10">
-                  <CardHeader>
-                    <CardTitle className="text-white">Class X</CardTitle>
-                    <CardDescription className="text-purple-200">
-                      My Rich Dad's Academy, Jalna • 2012 - 2022
-                    </CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <span className="text-white/80">
-                      Percentage: <span className="text-green-400 font-semibold">98%</span>
-                    </span>
-                  </CardContent>
-                </Card>
-              </div>
             </div>
           </div>
         </div>
       </section>
 
       {/* Achievements Section */}
-      <section id="achievements" className="py-20 bg-black/20">
+      <section id="achievements" className="py-20 bg-blue-950/30">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-4xl font-bold text-white mb-12 text-center flex items-center justify-center gap-3">
-              <Award className="text-purple-400" />
+              <Award className="text-blue-400" />
               Achievements & Experience
             </h2>
             <div className="grid md:grid-cols-2 gap-8">
               {achievements.map((achievement, index) => (
-                <Card key={index} className="bg-white/5 backdrop-blur-sm border-white/10">
+                <Card key={index} className="bg-blue-900/20 backdrop-blur-md border border-blue-800/50">
                   <CardHeader>
                     <CardTitle className="text-white flex items-center gap-3">
-                      <achievement.icon className="text-yellow-400" size={24} />
+                      <achievement.icon className="text-yellow-500" size={24} />
                       {achievement.title}
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <CardDescription className="text-white/70 text-base">{achievement.description}</CardDescription>
+                    <CardDescription className="text-blue-200/60 text-base">{achievement.description}</CardDescription>
                   </CardContent>
                 </Card>
               ))}
 
-              <Card className="bg-white/5 backdrop-blur-sm border-white/10 md:col-span-2">
+              <Card className="bg-blue-900/20 backdrop-blur-md border border-blue-800/50 md:col-span-2">
                 <CardHeader>
                   <CardTitle className="text-white flex items-center gap-3">
                     <User className="text-blue-400" size={24} />
-                    Volunteer Experience
+                    Leadership Experience
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <h3 className="text-lg font-semibold text-white mb-2">HOD - Public Relations for IIITL MUN 2025</h3>
-                  <CardDescription className="text-white/70 text-base">
-                    Leading outreach, managing communications, and driving delegate engagement to ensure strong
-                    participation and event visibility.
+                  <h3 className="text-lg font-semibold text-white mb-2">HOD - Corporate Relations for IIITL MUN 2025</h3>
+                  <CardDescription className="text-blue-200/60 text-base">
+                    Led outreach that secured 8+ corporate sponsors, managing partnership pipeline for a 200+ participant national conference.
                   </CardDescription>
                 </CardContent>
               </Card>
@@ -501,62 +470,62 @@ export default function Portfolio() {
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-4xl font-bold text-white mb-8 flex items-center justify-center gap-3">
-              <Mail className="text-purple-400" />
+              <Mail className="text-blue-400" />
               Get In Touch
             </h2>
-            <p className="text-xl text-white/80 mb-12">
+            <p className="text-xl text-blue-100/70 mb-12">
               I'm always open to discussing new opportunities, collaborations, or just having a chat about technology!
             </p>
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-              <Card className="bg-white/5 backdrop-blur-sm border-white/10 hover:bg-white/10 transition-all duration-300">
+              <Card className="bg-blue-900/20 backdrop-blur-md border border-blue-800/50 hover:bg-blue-800/40 hover:border-blue-600 hover:shadow-blue-900/20 transition-all duration-300">
                 <CardContent className="p-6 text-center">
-                  <Mail className="text-purple-400 mx-auto mb-4" size={32} />
+                  <Mail className="text-blue-400 mx-auto mb-4" size={32} />
                   <h3 className="text-white font-semibold mb-2">Email</h3>
                   <a
-                    href="mailto:kuberkhandare@gmail.com"
-                    className="text-purple-200 hover:text-purple-400 transition-colors"
+                    href="mailto:devang.012006@gmail.com"
+                    className="text-blue-400 hover:text-blue-300 transition-colors"
                   >
-                    kuberkhandare@gmail.com
+                    devang.012006@gmail.com
                   </a>
                 </CardContent>
               </Card>
 
-              <Card className="bg-white/5 backdrop-blur-sm border-white/10 hover:bg-white/10 transition-all duration-300">
+              <Card className="bg-blue-900/20 backdrop-blur-md border border-blue-800/50 hover:bg-blue-800/40 hover:border-blue-600 hover:shadow-blue-900/20 transition-all duration-300">
                 <CardContent className="p-6 text-center">
-                  <Phone className="text-green-400 mx-auto mb-4" size={32} />
+                  <Phone className="text-emerald-600 mx-auto mb-4" size={32} />
                   <h3 className="text-white font-semibold mb-2">Phone</h3>
-                  <a href="tel:+0000000000" className="text-green-200 hover:text-green-400 transition-colors">
-                    +91-0000000000
+                  <a href="tel:+919773457291" className="text-emerald-400 hover:text-emerald-300 transition-colors">
+                    +91 97734 57291
                   </a>
                 </CardContent>
               </Card>
 
-              <Card className="bg-white/5 backdrop-blur-sm border-white/10 hover:bg-white/10 transition-all duration-300">
+              <Card className="bg-blue-900/20 backdrop-blur-md border border-blue-800/50 hover:bg-blue-800/40 hover:border-blue-600 hover:shadow-blue-900/20 transition-all duration-300">
                 <CardContent className="p-6 text-center">
-                  <Github className="text-gray-400 mx-auto mb-4" size={32} />
+                  <Github className="text-blue-100/70 mx-auto mb-4" size={32} />
                   <h3 className="text-white font-semibold mb-2">GitHub</h3>
                   <a
-                    href="https://github.com/KuberTheGreat"
+                    href="https://github.com/SpectreKnight69"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-gray-200 hover:text-gray-400 transition-colors"
+                    className="text-slate-300 hover:text-white transition-colors"
                   >
-                    KuberTheGreat
+                    SpectreKnight69
                   </a>
                 </CardContent>
               </Card>
 
-              <Card className="bg-white/5 backdrop-blur-sm border-white/10 hover:bg-white/10 transition-all duration-300">
+              <Card className="bg-blue-900/20 backdrop-blur-md border border-blue-800/50 hover:bg-blue-800/40 hover:border-blue-600 hover:shadow-blue-900/20 transition-all duration-300">
                 <CardContent className="p-6 text-center">
-                  <Twitter className="text-blue-400 mx-auto mb-4" size={32} />
-                  <h3 className="text-white font-semibold mb-2">Twitter</h3>
+                  <Linkedin className="text-blue-400 mx-auto mb-4" size={32} />
+                  <h3 className="text-white font-semibold mb-2">LinkedIn</h3>
                   <a
-                    href="https://x.com/kuberkhandare"
+                    href="https://www.linkedin.com/in/devang-vaishnav-0680a3327/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-blue-200 hover:text-blue-400 transition-colors"
+                    className="text-sky-400 hover:text-sky-300 transition-colors"
                   >
-                    @kuberkhandare
+                    Devang Vaishnav
                   </a>
                 </CardContent>
               </Card>
@@ -566,9 +535,9 @@ export default function Portfolio() {
       </section>
 
       {/* Footer */}
-      <footer className="py-8 bg-black/40 border-t border-white/10">
+      <footer className="py-8 bg-slate-950 border-t border-blue-900/50">
         <div className="container mx-auto px-6 text-center">
-          <p className="text-white/60">© 2025 Kuber Khandare.</p>
+          <p className="text-blue-200/40">© 2025 Devang Vaishnav.</p>
         </div>
       </footer>
 
