@@ -15,6 +15,7 @@ import {
   GraduationCap,
   User,
   Briefcase,
+  Cpu,
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
@@ -52,10 +53,11 @@ export default function Portfolio() {
   }
 
   const skills = {
-    languages: ["Golang", "Java", "JavaScript", "TypeScript", "C++"],
+    languages: ["Golang", "Java", "JavaScript", "TypeScript", "C++", "Solidity", "Rust"],
     systems: ["Prometheus", "Grafana", "Docker", "Microservices"],
     frontend: ["React", "Next.js", "Three.js", "WebGL", "Tailwind CSS"],
-    backend: ["Go", "Redis", "PostgreSQL", "REST APIs", "JWT Auth"],
+    backend: ["Go", "Redis", "PostgreSQL", "REST APIs", "JWT Auth", "Web3.js", "Ether.js"],
+    smartContract: ["Solidity (Ethereum, Sepolia)", "Rust (Solana)"],
     softSkills: ["Leadership", "Event Management", "Public Speaking", "Teamwork", "Time Management"],
   }
 
@@ -152,7 +154,7 @@ export default function Portfolio() {
               <Button
                 onClick={() => scrollToSection("contact")}
                 variant="outline"
-                className="border-white/30 text-white hover:bg-blue-800/40 hover:border-blue-600 hover:shadow-blue-900/20 px-8 py-3 rounded-full"
+                className="border-white/30 text-blue-600 hover:text-white hover:bg-blue-800/40 hover:border-blue-600 hover:shadow-blue-900/20 px-8 py-3 rounded-full"
               >
                 Get In Touch
               </Button>
@@ -319,7 +321,25 @@ export default function Portfolio() {
                 </CardContent>
               </Card>
 
-              <Card className="bg-blue-900/20 backdrop-blur-md border border-blue-800/50 md:col-span-2">
+              <Card className="bg-blue-900/20 backdrop-blur-md border border-blue-800/50">
+                <CardHeader>
+                  <CardTitle className="text-white flex items-center gap-2">
+                    <Cpu className="text-blue-400" size={20} />
+                    Smart Contract Development
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="flex flex-wrap gap-2">
+                    {skills.smartContract.map((skill) => (
+                      <Badge key={skill} variant="secondary" className="bg-blue-900/50 text-blue-300 border border-blue-700/50">
+                        {skill}
+                      </Badge>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card className="bg-blue-900/20 backdrop-blur-md border border-blue-800/50">
                 <CardHeader>
                   <CardTitle className="text-white flex items-center gap-2">
                     <User className="text-rose-500" size={20} />
@@ -468,7 +488,7 @@ export default function Portfolio() {
       {/* Contact Section */}
       <section id="contact" className="py-20">
         <div className="container mx-auto px-6">
-          <div className="max-w-4xl mx-auto text-center">
+          <div className="max-w-6xl mx-auto text-center">
             <h2 className="text-4xl font-bold text-white mb-8 flex items-center justify-center gap-3">
               <Mail className="text-blue-400" />
               Get In Touch
@@ -476,21 +496,21 @@ export default function Portfolio() {
             <p className="text-xl text-blue-100/70 mb-12">
               I'm always open to discussing new opportunities, collaborations, or just having a chat about technology!
             </p>
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-              <Card className="bg-blue-900/20 backdrop-blur-md border border-blue-800/50 hover:bg-blue-800/40 hover:border-blue-600 hover:shadow-blue-900/20 transition-all duration-300">
+            <div className="flex flex-wrap justify-center gap-6">
+              <Card className="bg-blue-900/20 backdrop-blur-md border border-blue-800/50 hover:bg-blue-800/40 hover:border-blue-600 hover:shadow-blue-900/20 transition-all duration-300 flex-1 min-w-[270px] max-w-[320px]">
                 <CardContent className="p-6 text-center">
                   <Mail className="text-blue-400 mx-auto mb-4" size={32} />
                   <h3 className="text-white font-semibold mb-2">Email</h3>
                   <a
                     href="mailto:devang.012006@gmail.com"
-                    className="text-blue-400 hover:text-blue-300 transition-colors"
+                    className="text-blue-400 hover:text-blue-300 transition-colors text-sm md:text-base block whitespace-nowrap"
                   >
                     devang.012006@gmail.com
                   </a>
                 </CardContent>
               </Card>
 
-              <Card className="bg-blue-900/20 backdrop-blur-md border border-blue-800/50 hover:bg-blue-800/40 hover:border-blue-600 hover:shadow-blue-900/20 transition-all duration-300">
+              <Card className="bg-blue-900/20 backdrop-blur-md border border-blue-800/50 hover:bg-blue-800/40 hover:border-blue-600 hover:shadow-blue-900/20 transition-all duration-300 flex-1 min-w-[270px] max-w-[320px]">
                 <CardContent className="p-6 text-center">
                   <Phone className="text-emerald-600 mx-auto mb-4" size={32} />
                   <h3 className="text-white font-semibold mb-2">Phone</h3>
@@ -500,7 +520,7 @@ export default function Portfolio() {
                 </CardContent>
               </Card>
 
-              <Card className="bg-blue-900/20 backdrop-blur-md border border-blue-800/50 hover:bg-blue-800/40 hover:border-blue-600 hover:shadow-blue-900/20 transition-all duration-300">
+              <Card className="bg-blue-900/20 backdrop-blur-md border border-blue-800/50 hover:bg-blue-800/40 hover:border-blue-600 hover:shadow-blue-900/20 transition-all duration-300 flex-1 min-w-[270px] max-w-[320px]">
                 <CardContent className="p-6 text-center">
                   <Github className="text-blue-100/70 mx-auto mb-4" size={32} />
                   <h3 className="text-white font-semibold mb-2">GitHub</h3>
@@ -515,7 +535,7 @@ export default function Portfolio() {
                 </CardContent>
               </Card>
 
-              <Card className="bg-blue-900/20 backdrop-blur-md border border-blue-800/50 hover:bg-blue-800/40 hover:border-blue-600 hover:shadow-blue-900/20 transition-all duration-300">
+              <Card className="bg-blue-900/20 backdrop-blur-md border border-blue-800/50 hover:bg-blue-800/40 hover:border-blue-600 hover:shadow-blue-900/20 transition-all duration-300 flex-1 min-w-[270px] max-w-[320px]">
                 <CardContent className="p-6 text-center">
                   <Linkedin className="text-blue-400 mx-auto mb-4" size={32} />
                   <h3 className="text-white font-semibold mb-2">LinkedIn</h3>
